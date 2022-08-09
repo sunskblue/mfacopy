@@ -3,7 +3,7 @@
 
 """
 import click
-from keyring import get_keyring
+import keyring
 import onetimepass
 
 
@@ -19,25 +19,28 @@ def cli():
 @click.option('--force', is_flag=True)
 def set(key, value, force):
     """Set a value for a key."""
-    if get_keyring().get_password(__name__, key) and not force:
+    keyring.core.set_keyring(keyring.core.load_keyring('keyring.backends.OS_X.Keyring'))
+    if keyring.get_password(__name__, key) and not force:
         click.echo("Use '--force' to overwrite existing key.")
     else:
-        get_keyring().set_password(__name__, key, value)
+        keyring.set_password(__name__, key, value)
 
 
 @cli.command()
 @click.argument('key')
 def get(key):
+    keyring.core.set_keyring(keyring.core.load_keyring('keyring.backends.OS_X.Keyring'))
     """Get the value for the key."""
-    click.echo(get_keyring().get_password(__name__, key))
+    click.echo(keyring.get_password(__name__, key))
 
 
 @cli.command()
 @click.argument('key')
 def delete(key):
+    keyring.core.set_keyring(keyring.core.load_keyring('keyring.backends.OS_X.Keyring'))
     """Delete the key."""
     try:
-        get_keyring().delete_password(__name__, key)
+        keyring.delete_password(__name__, key)
     except Exception as e:
         click.echo((Exception, e))
 
@@ -45,8 +48,9 @@ def delete(key):
 @cli.command()
 @click.argument('key')
 def otp(key):
+    keyring.core.set_keyring(keyring.core.load_keyring('keyring.backends.OS_X.Keyring'))
     """Generate a one-time password using TOTP."""
-    password = get_keyring().get_password(__name__, key)
+    password = keyring.get_password(__name__, key)
     try:
         totp = onetimepass.get_totp(password, as_string=True)
     except Exception as e:
