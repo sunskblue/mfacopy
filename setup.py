@@ -9,7 +9,7 @@ from setuptools import setup
 
 setup(
     name='mfacopy',
-    version='0.0.3',
+    version='0.0.4',
     url='https://github.com/sunskblue/mfacopy',
     author='sunskblue',
     author_email='961370624@qq.com',
