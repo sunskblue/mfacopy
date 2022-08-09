@@ -1,5 +1,5 @@
 """
-mfa
+mfacopy
 ===
 
 Multi-factor authentication on your command line.
@@ -7,23 +7,22 @@ Multi-factor authentication on your command line.
 """
 from setuptools import setup
 
-
 setup(
-    name='mfa',
-    version='0.1.1',
-    url='https://github.com/limeburst/mfa',
-    author='Jihyeok Seo',
-    author_email='me@limeburst.net',
+    name='mfacopy',
+    version='0.0.1',
+    url='https://github.com/sunskblue/mfacopy',
+    author='sunskblue',
+    author_email='961370624@qq.com',
     description='Multi-factor authentication on your command line',
     long_description=__doc__,
-    packages=['mfa'],
+    packages=['mfacopy'],
     entry_points={
-        'console_scripts': ['mfa = mfa.cli:cli']
+        'console_scripts': ['mfacopy = mfacopy.cli:cli']
     },
     install_requires=[
-        'click == 5.1',
-        'keyring == 5.6',
-        'onetimepass = 1.0.1'
+        'click == 8.1.3',
+        'keyring == 23.8.2',
+        'onetimepass == 1.0.1'
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',

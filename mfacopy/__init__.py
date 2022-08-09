@@ -1,4 +1,4 @@
-""":mod:`mfa` --- Multi-factor authentication on your command line.
+""":mod:`mfacopy` --- Multi-factor authentication on your command line.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 """
